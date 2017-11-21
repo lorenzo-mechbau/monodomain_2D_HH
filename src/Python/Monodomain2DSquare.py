@@ -156,12 +156,16 @@ materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldPar
 materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldParameterSetTypes.VALUES,4,conductivity)
 #DOC-END equations set fields
 
+if len(sys.argv) > 1:
+	cellml_file = sys.argv[1]
+else:
+	cellml_file = 'HodgkinHuxley1952.cellml'
 #DOC-START create cellml environment
 # Create the CellML environment
 cellML = iron.CellML()
 cellML.CreateStart(cellMLUserNumber, region)
 # Import a Nobel 98 cell model from a file
-noble98Model = cellML.ModelImport("HodgkinHuxley1952.cellml")
+noble98Model = cellML.ModelImport(cellml_file)
 #DOC-END create cellml environment
 
 #DOC-START flag variables
