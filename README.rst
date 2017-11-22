@@ -11,17 +11,19 @@ Activate the openCMISS virtual environment for python bindings
 
 Run the python script
   cd ./src/Python/
+
   python monodomain_2D_HH.py
 
 To run in parallel
   cd ./src/Python/
+
   mpirun -np <number-of-threads> python monodomain_2D_HH.py
 
 Verifying the example
 =====================
 
-Results can be visualised by running `visualise.cmgui <./src/fortran/visualise.cmgui>`_ with the `Cmgui visualiser <http://physiomeproject.org/software/opencmiss/cmgui/download>`_.
-The expected results from this example are available in `expected_results <./src/fortran/expected_results>`_ folder.
+Results can be visualised by running `visualise.cmgui <./src/Python/visualise.cmgui>`_ with the `Cmgui visualiser <http://physiomeproject.org/software/opencmiss/cmgui/download>`_.
+The expected results from this example are available in `expected_results <./src/Python/expected_results>`_ folder.
 
 Prerequisites
 =============
