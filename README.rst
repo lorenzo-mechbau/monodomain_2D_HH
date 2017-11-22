@@ -15,7 +15,7 @@ Run the python script
 
 To run in parallel
   cd ./src/Python/
-  mpirun -np 2 python monodomain_2D_HH.py
+  mpirun -np <number-of-threads> python monodomain_2D_HH.py
 
 Verifying the example
 =====================
