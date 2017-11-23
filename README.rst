@@ -10,11 +10,11 @@ Running the example
 Activate the openCMISS virtual environment for python bindings::
   source <path-to-opencmiss>/install/virtual_environments/oclibs_venv_py27_release/bin/activate
 
-Run the python script::
+Run the python script ::
   cd ./src/Python/
   python monodomain_2D_HH.py
 
-To run in parallel::
+To run in parallel ::
   cd ./src/Python/
   mpirun -np <number-of-processors> python monodomain_2D_HH.py
 
