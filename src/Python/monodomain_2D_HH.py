@@ -161,16 +161,16 @@ materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldPar
 
 # Read the cellml file either as an argument (useful for testing) or hardcoded text.
 if len(sys.argv) > 1:
-	cellml_file = sys.argv[1]
+	cellmlModel = sys.argv[1]
 else:
-	cellml_file = 'HodgkinHuxley1952.cellml'
+	cellmlModel = 'HodgkinHuxley1952.cellml'
 
 #DOC-START create cellml environment
 # Create the CellML environment
 cellML = iron.CellML()
 cellML.CreateStart(cellMLUserNumber, region)
 # Import a Nobel 98 cell model from a file
-noble98Model = cellML.ModelImport(cellml_file)
+noble98Model = cellML.ModelImport(cellmlModel)
 #DOC-END create cellml environment
 
 #DOC-START flag variables
