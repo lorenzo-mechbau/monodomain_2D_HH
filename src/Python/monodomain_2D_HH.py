@@ -2,8 +2,6 @@
 
 #DOC-START imports
 import sys, os, math
-# Make sure $OPENCMISS_ROOT/cm/bindings/python is first in our PYTHONPATH.
-#sys.path.insert(1, os.path.join((os.environ['OPENCMISS_ROOT'],'cm','bindings','python')))
 
 # setting random seed to recreate the results for parallel runs
 import random

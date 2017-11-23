@@ -1,23 +1,22 @@
 
 
-==================
+========================================================================================
 Bioelectrics: Monodomain problem on a 2D domain with simple HodgkinHuxley1952 cell model
-==================
+========================================================================================
+This example demonstrates solving a monodomain problem on a 2D domain using Hodgkin and Huxley cell model passed as a .cellml model. The geometry is discretised with bilinear Lagrange finite elements with numberOfXElements in the X direction and numberOfYElements in the Y direction. The material parameters for the domain are controlled with the Am parameter for the cell membrane area, Cm for the membrane capacitance and conductivity for continuum conducticity. To start the simulation a stimulation is applied to the left half of the bottom row of nodes. This stimulation lasts from time zero until time stimStop. The magnitude of the stimulus is given by stimValue parameter. After time stimStop the stimulation is turned of and the simulation is continued until time timeStop. The time step for the spatial PDE problem is given by the pdeTimeStep parameter and the time step for the ODE integration is given by the odeTimeStep parameter. The final parameter, outputFrequency, controls how many time steps pass before the solution is output to file.
 
 Running the example
 ===================
-Activate the openCMISS virtual environment for python bindings
+Activate the openCMISS virtual environment for python bindings::
   source <path-to-opencmiss>/install/virtual_environments/oclibs_venv_py27_release/bin/activate
 
-Run the python script
+Run the python script::
   cd ./src/Python/
-
   python monodomain_2D_HH.py
 
-To run in parallel
+To run in parallel::
   cd ./src/Python/
-
-  mpirun -np <number-of-threads> python monodomain_2D_HH.py
+  mpirun -np <number-of-processors> python monodomain_2D_HH.py
 
 Verifying the example
 =====================
