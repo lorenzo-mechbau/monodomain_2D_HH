@@ -169,16 +169,16 @@ else:
 # Create the CellML environment
 cellML = iron.CellML()
 cellML.CreateStart(cellMLUserNumber, region)
-# Import a Nobel 98 cell model from a file
-noble98Model = cellML.ModelImport(cellmlModel)
+# Import the HodgkinHuxley1952 cell model from a file
+hhModel = cellML.ModelImport(cellmlModel)
 #DOC-END create cellml environment
 
 #DOC-START flag variables
 # Now we have imported the model we are able to specify which variables from the model we want to set from openCMISS
-cellML.VariableSetAsKnown(noble98Model, "membrane/i_Stim")
-cellML.VariableSetAsKnown(noble98Model, "membrane/Cm")
+cellML.VariableSetAsKnown(hhModel, "membrane/i_Stim")
+cellML.VariableSetAsKnown(hhModel, "membrane/Cm")
 # and variables to get from the CellML
-cellML.VariableSetAsWanted(noble98Model, "membrane/i_K")
+cellML.VariableSetAsWanted(hhModel, "membrane/i_K")
 #DOC-END flag variables
 
 #DOC-START create cellml finish
@@ -190,8 +190,8 @@ cellML.CreateFinish()
 cellML.FieldMapsCreateStart()
 #Now we can set up the field variable component <--> CellML model variable mappings.
 #Map Vm
-cellML.CreateFieldToCellMLMap(dependentField,iron.FieldVariableTypes.U,1, iron.FieldParameterSetTypes.VALUES,noble98Model,"membrane/V", iron.FieldParameterSetTypes.VALUES)
-cellML.CreateCellMLToFieldMap(noble98Model,"membrane/V", iron.FieldParameterSetTypes.VALUES,dependentField,iron.FieldVariableTypes.U,1,iron.FieldParameterSetTypes.VALUES)
+cellML.CreateFieldToCellMLMap(dependentField,iron.FieldVariableTypes.U,1, iron.FieldParameterSetTypes.VALUES,hhModel,"membrane/V", iron.FieldParameterSetTypes.VALUES)
+cellML.CreateCellMLToFieldMap(hhModel,"membrane/V", iron.FieldParameterSetTypes.VALUES,dependentField,iron.FieldVariableTypes.U,1,iron.FieldParameterSetTypes.VALUES)
 
 #Finish the creation of CellML <--> OpenCMISS field maps
 cellML.FieldMapsCreateFinish()
@@ -222,7 +222,7 @@ cellML.ParametersFieldCreateStart(cellMLParametersFieldUserNumber, cellMLParamet
 cellML.ParametersFieldCreateFinish()
 
 # Set the initial Cm values
-cmComponent = cellML.FieldComponentGet(noble98Model, iron.CellMLFieldTypes.PARAMETERS, "membrane/Cm")
+cmComponent = cellML.FieldComponentGet(hhModel, iron.CellMLFieldTypes.PARAMETERS, "membrane/Cm")
 cellMLParametersField.ComponentValuesInitialise(iron.FieldVariableTypes.U, iron.FieldParameterSetTypes.VALUES, cmComponent,Cm)
 
 #  Create the CellML intermediate field
@@ -245,7 +245,7 @@ firstNodeDomain = decomposition.NodeDomainGet(firstNodeNumber, 1)
 lastNodeDomain = decomposition.NodeDomainGet(lastNodeNumber, 1)
 
 # Set the stimulus on half the bottom nodes
-stimComponent = cellML.FieldComponentGet(noble98Model, iron.CellMLFieldTypes.PARAMETERS, "membrane/i_Stim")
+stimComponent = cellML.FieldComponentGet(hhModel, iron.CellMLFieldTypes.PARAMETERS, "membrane/i_Stim")
 for node in range(1,(numberOfXElements + 1)/2 + 1):
     nodeDomain = decomposition.NodeDomainGet(node,1)
     if nodeDomain == computationalNodeNumber:
