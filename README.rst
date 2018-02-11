@@ -21,7 +21,7 @@ Run the python script::
 To run in parallel::
 
   cd ./src/Python/
-  mpirun -np <number-of-processors> python monodomain_2D_HH.py
+  mpiexec -np <number-of-processors> python monodomain_2D_HH.py
 
 Verifying the example
 =====================
