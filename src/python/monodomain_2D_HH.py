@@ -163,7 +163,7 @@ materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldPar
 if len(sys.argv) > 1:
 	cellmlFile = sys.argv[1]
 else:
-	cellmlFile = 'HodgkinHuxley1952.cellml'
+	cellmlFile = './HodgkinHuxley1952.cellml'
 
 #DOC-START create cellml environment
 # Create the CellML environment
