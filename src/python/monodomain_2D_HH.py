@@ -22,7 +22,7 @@ numberOfYElements = 13
 # Materials parameters
 Am = 1936 #cm^-1
 Cm = 1.4 #uF.cm^2
-conductivity = 1 #mS.cm^-1
+conductivity = 1.0 #mS.cm^-1
 # Simulation parameters
 # stimValue is directly passed on to the cellml equations
 stimValue = -5000.0 #uA.cm^-2
