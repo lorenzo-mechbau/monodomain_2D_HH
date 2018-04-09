@@ -22,7 +22,7 @@ numberOfYElements = 13
 # Materials parameters
 Am = 1936 #cm^-1
 Cm = 1.4 #uF.cm^2
-conductivity = 1 #mS.cm^-1
+conductivity = 1.0 #mS.cm^-1
 # Simulation parameters
 # stimValue is directly passed on to the cellml equations
 stimValue = -5000.0 #uA.cm^-2
@@ -163,7 +163,7 @@ materialsField.ComponentValuesInitialise(iron.FieldVariableTypes.U,iron.FieldPar
 if len(sys.argv) > 1:
 	cellmlFile = sys.argv[1]
 else:
-	cellmlFile = 'HodgkinHuxley1952.cellml'
+	cellmlFile = './HodgkinHuxley1952.cellml'
 
 #DOC-START create cellml environment
 # Create the CellML environment
