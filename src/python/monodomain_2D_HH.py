@@ -59,8 +59,9 @@ cellMLIntermediateFieldUserNumber = 9
 
 #DOC-START parallel information
 # Get the number of computational nodes and this computational node number
-numberOfComputationalNodes = iron.ComputationalNumberOfNodesGet()
-computationalNodeNumber = iron.ComputationalNodeNumberGet()
+computationEnvironment = iron.ComputationEnvironment()
+numberOfComputationalNodes = computationEnvironment.NumberOfWorldNodesGet()
+computationalNodeNumber = computationEnvironment.WorldNodeNumberGet()
 #DOC-END parallel information
 
 #DOC-START initialisation
